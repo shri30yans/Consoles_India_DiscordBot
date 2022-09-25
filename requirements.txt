@@ -8,7 +8,6 @@ asyncpg #database wrapper
 requests
 beautifulsoup4
 aiohttp
-asyncpg # database
 playwright
 tweepy
-winsound # for the GUI sound alerts
+#winsound # for the GUI sound alerts

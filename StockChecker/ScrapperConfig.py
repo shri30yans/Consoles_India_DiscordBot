@@ -51,11 +51,11 @@ All_Products = {
         display_name="PS5",
         hidden=True,
         links={
-            "amazon": "https://www.amazon.in/dp/B08FV5GC28?smid=AT95IG9ONZD7S",
+            "amazon": "https://www.amazon.in/dp/B08FV5GC28",
             "flipkart": "https://www.flipkart.com/stop-worrying-start-living/p/itmfez44fyrr8dud",
             "shopatsc": "https://shopatsc.com/products/playstation-5-console",
             "games_the_shop": "https://www.gamestheshop.com/PlayStation-5-Console/5111",
-            "ppgc": "https://prepaidgamercard.com/product/playstation-5-console-ps5/",
+            "e2zstore": "https://e2zstore.com/product/playstation-5-console-ps5/",
             "reliance": "https://www.reliancedigital.in/bajaj-gx-1-mixer-grinder/p/490743989",
         },
     ),
@@ -63,11 +63,11 @@ All_Products = {
         name="PS5",
         display_name="PS5",
         links={
-            "amazon": "https://www.amazon.in/dp/B09V59MD1P?smid=AT95IG9ONZD7S",
+            "amazon": "https://www.amazon.in/dp/B09V59MD1P",
             "flipkart": "https://www.flipkart.com/sony-playstation-5-cfi-1008a01r-825-gb-astro-s-playroom/p/itma0201bdea62fa",
             "shopatsc": "https://shopatsc.com/products/playstation-5-console",
             "games_the_shop": "https://www.gamestheshop.com/PlayStation-5-Console/5111",
-            "ppgc": "https://prepaidgamercard.com/product/playstation-5-console-ps5/",
+            "e2zstore": "https://e2zstore.com/product/playstation-5-console-ps5/",
             "reliance":"https://www.reliancedigital.in/sony-playstation-5-console/p/491936180"
         },
         add_to_cart_links={
@@ -92,11 +92,11 @@ All_Products = {
         name="PS5_DE",
         display_name="PS5 Digital",
         links={
-            "amazon": "https://www.amazon.in/dp/B09V58Q6DY?smid=AT95IG9ONZD7S",
+            "amazon": "https://www.amazon.in/dp/B09V58Q6DY",
             "flipkart": "https://www.flipkart.com/sony-playstation-5-cfi-1008b01r-825-gb-astro-s-playroom/p/itm8bf74f8d0b890?",
             "shopatsc": "https://shopatsc.com/products/playstation5-digital-edition",
             "games_the_shop": "https://www.gamestheshop.com/PlayStation-5-Digital-Edition/5112",
-            "ppgc": "https://prepaidgamercard.com/product/playstation-5-digital-edition-ps5/",
+            "e2zstore": "https://e2zstore.com/product/playstation-5-digital-edition-ps5/",
             "reliance": "https://www.reliancedigital.in/sony-playstation-5-console/p/491936181",
         },
         add_to_cart_links={
@@ -121,7 +121,7 @@ All_Products = {
         name="PS5_GT7_BUNDLE",
         display_name="PS5 & GT7 bundle",
         links={
-            "amazon": "https://www.amazon.in/dp/B09YD71MZT/?smid=AT95IG9ONZD7S",
+            "amazon": "https://www.amazon.in/dp/B09YD71MZT/",
             "shopatsc": "https://shopatsc.com/collections/playstation-5/products/playstation%C2%AE5-console-with-ps5-gran-turismo-7-standard-ed",
         },
         add_to_cart_links={
@@ -130,6 +130,58 @@ All_Products = {
         },
         affiliate_links={
             "amazon": f"https://www.amazon.in/dp/B09YD71MZT/?tag={config.amazon_affiliate_tag}",
+        },
+        wishlist= PS5_wishlist,
+        notification_roles={
+            config.playstation_server_id: 849606173522788352,
+            config.my_server_id: 893734056720740352,
+        },
+        notification_channels=config.both_playstation_channels,
+        twitter_hashtags="#RestockPS5India #PS5",
+        thumbnail_link="https://i.imgur.com/pmgar66.jpg?1",
+        colour=0x2100FF,
+        emoji=config.PS5_emoji,
+    ),
+     "PS5_HFW_BUNDLE": Product(
+        name="PS5_HFW_BUNDLE",
+        display_name="PS5 & HFW bundle",
+        links={
+            "amazon": "https://www.amazon.in/dp/B0B9GH5TTN/",
+            "shopatsc": "https://shopatsc.com/collections/playstation-5/products/playstation-5-console-horizon-forbidden-west-voucher-inside-box",
+            "flipkart": "https://www.flipkart.com/sony-cfi-1108a01r-825-gb-ssd-horizon-forbidden-west-for-ps5-voucher-inside-box/p/itm1e58025bea2d9",
+        },
+        add_to_cart_links={
+            "amazon": f"https://www.amazon.in/gp/aws/cart/add.html?AssociateTag={config.amazon_affiliate_tag}&ASIN.1=B0B9GH5TTN&Quantity.1=1",
+            "shopatsc": f"https://shopatsc.com/cart/40739681992843:1"
+        },
+        affiliate_links={
+            "amazon": f"https://www.amazon.in/dp/B0B9GH5TTN/?tag={config.amazon_affiliate_tag}",
+        },
+        wishlist= PS5_wishlist,
+        notification_roles={
+            config.playstation_server_id: 849606173522788352,
+            config.my_server_id: 893734056720740352,
+        },
+        notification_channels=config.both_playstation_channels,
+        twitter_hashtags="#RestockPS5India #PS5",
+        thumbnail_link="https://i.imgur.com/pmgar66.jpg?1",
+        colour=0x2100FF,
+        emoji=config.PS5_emoji,
+    ),
+     "PS5_DE_HFW_BUNDLE": Product(
+        name="PS5_DE_HFW_BUNDLE",
+        display_name="PS5 DE & HFW bundle",
+        links={
+            "amazon": "https://www.amazon.in/dp/B0B9GDVHQQ/",
+            "shopatsc": "https://shopatsc.com/collections/playstation-5/products/playstation-5-digital-edition-with-horizon-forbidden-west-voucher-inside-box",
+            "flipkart": "https://www.flipkart.com/sony-cfi-1108b01r-825-gb-ssd-horizon-forbidden-west-for-ps5-voucher-inside-box/p/itm3783a181f39d4",
+        },
+        add_to_cart_links={
+            "amazon": f"https://www.amazon.in/gp/aws/cart/add.html?AssociateTag={config.amazon_affiliate_tag}&ASIN.1=B09YD71MZT&Quantity.1=1",
+            "shopatsc": f"https://shopatsc.com/cart/40739661742219:1"
+        },
+        affiliate_links={
+            "amazon": f"https://www.amazon.in/dp/B0B9GDVHQQ/?tag={config.amazon_affiliate_tag}",
         },
         wishlist= PS5_wishlist,
         notification_roles={
@@ -274,7 +326,7 @@ All_Products = {
         links={
             "amazon": "https://www.amazon.in/Xbox-Series-X/dp/B08J7QX1N1/?smid=AT95IG9ONZD7S",
             "flipkart": "https://www.flipkart.com/microsoft-xbox-series-x-1024-gb/p/itm63ff9bd504f27",
-            "ppgc": "https://prepaidgamercard.com/product/xbox-series-x/",
+            "e2zstore": "https://e2zstore.com/product/xbox-series-x/",
             "reliance": "https://www.reliancedigital.in/xbox-series-x-console-with-wireless-controller-1-tb/p/491934660",
         },
         add_to_cart_links={
@@ -299,7 +351,7 @@ All_Products = {
         links={
             "amazon": "https://www.amazon.in/dp/B09LMY7K1L/",
             "flipkart": "https://www.flipkart.com/microsoft-xbox-series-x-1000-gb-halo-infinite-game-digital-code/p/itmc66869fa47647",
-            "ppgc": "https://prepaidgamercard.com/product/xbox-series-x-halo-infinite-limited-edition-bundle/",
+            "e2zstore": "https://e2zstore.com/product/xbox-series-x-halo-infinite-limited-edition-bundle/",
         },
         add_to_cart_links={
             "amazon": f"https://www.amazon.in/gp/aws/cart/add.html?AssociateTag={config.amazon_affiliate_tag}&ASIN.1=B09LMY7K1L&Quantity.1=1"
@@ -317,13 +369,33 @@ All_Products = {
         colour=0x3E8806,
         emoji=config.XSX_emoji,
     ),
+    "XSX_FORZA_EDITION": Product(
+        name="XSX_FORZA_EDITION",
+        display_name="XSX Forza Edition Bundle",
+        links={
+            "flipkart": "https://www.flipkart.com/xbox-series-x-console-1000-gb-forza-horizon-4/p/itm2c0869097870c",
+        },
+        add_to_cart_links={
+        },
+        affiliate_links={
+        },
+        wishlist=XBOX_wishlist,
+        notification_roles={
+            config.my_server_id: 893734236392144926,
+        },
+        notification_channels=config.xbox_channel,
+        twitter_hashtags="#RestockXSXIndia #XSX",
+        thumbnail_link="https://i.imgur.com/WpKbZXR.jpg",
+        colour=0x3E8806,
+        emoji=config.XSX_emoji,
+    ),
     "XSX_HALO_EDITION_CONTROLLER": Product(
         name="XSX_HALO_EDITION_CONTROLLER",
         display_name="XSX Halo Edition Elite controller",
         links={
             "amazon": "https://www.amazon.in/dp/B09LMY7K1L/",
             "flipkart": "https://www.flipkart.com/microsoft-xbox-elite-wireless-controller-series-2-halo-infinite-limited-bluetooth-gamepad/p/itm28256af2eb91a",
-            "ppgc": "https://prepaidgamercard.com/product/xbox-elite-wireless-controller-series-2-halo-infinite-limited-edition/",
+            "e2zstore": "https://prepaidgamercard.com/product/xbox-elite-wireless-controller-series-2-halo-infinite-limited-edition/",
         },
         add_to_cart_links={
             "amazon": f"https://www.amazon.in/gp/aws/cart/add.html?AssociateTag={config.amazon_affiliate_tag}&ASIN.1=B09LMY7K1L&Quantity.1=1"
@@ -471,7 +543,7 @@ All_Products = {
         links={
             "amazon": "https://www.amazon.in/Xbox-Series-S/dp/B08J89D6BW/?smid=AT95IG9ONZD7S",
             "flipkart": "https://www.flipkart.com/microsoft-xbox-series-s-512-gb/p/itm13c51f9047da8",
-            "ppgc": "https://prepaidgamercard.com/product/xbox-series-s/",
+            "e2zstore": "https://prepaidgamercard.com/product/xbox-series-s/",
             "reliance": "https://www.reliancedigital.in/xbox-series-s-console-with-wireless-controller-512-gb/p/491934659",
         },
         add_to_cart_links={
@@ -676,6 +748,12 @@ All_Websites = {
             "PS5_GT7_BUNDLE": Amazon_Wishlist_Item(
                 name="PS5_GT7_BUNDLE", ASIN="B09YD71MZT"
             ),
+            "PS5_HFW_BUNDLE": Amazon_Wishlist_Item(
+                name="PS5_HFW_BUNDLE", ASIN="B0B9GH5TTN"
+            ),
+            "PS5_DE_GT7_BUNDLE": Amazon_Wishlist_Item(
+                name="PS5_DE_HFW_BUNDLE", ASIN="B0B9GDVHQQ"
+            ),
             # "PS5_DE_REMOTE_BUNDLE": Amazon_Wishlist_Item(
             #     name="PS5_DE_REMOTE_BUNDLE", ASIN="B08NTVH9VG"
             # ),
@@ -708,10 +786,10 @@ All_Websites = {
                 name="XSX_HALO_EDITION",
                 ASIN="B09LMY7K1L",
             ),
-            "XSX_20TH_ANNIVERSARY_EDITION_CONTROLLER": Amazon_Wishlist_Item(
-                name="XSX_20TH_ANNIVERSARY_EDITION_CONTROLLER",
-                ASIN="B09HTV3Q3T",
-            ),
+            # "XSX_20TH_ANNIVERSARY_EDITION_CONTROLLER": Amazon_Wishlist_Item(
+            #     name="XSX_20TH_ANNIVERSARY_EDITION_CONTROLLER",
+            #     ASIN="B09HTV3Q3T",
+            # ),
             # "XBOX_WIRELESS_HEADSET": Amazon_Wishlist_Item(
             #     name="XBOX_WIRELESS_HEADSET",
             #     ASIN="B09HSHXYCR",
@@ -1083,8 +1161,8 @@ All_Websites = {
         display_name="Games the Shop",
         name="games_the_shop",
     ),
-    "ppgc": Website(
-        display_name="Prepaid Gamer Card",
-        name="ppgc",
+    "e2zstore": Website(
+        display_name="E2Zstore",
+        name="e2zstore",
     ),
 }

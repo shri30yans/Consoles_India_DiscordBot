@@ -76,5 +76,5 @@ class Random(commands.Cog):
 #             await channel.edit(name=f"Member Count: {guild.member_count}",reason="Member Count")
 
 
-def setup(bot):
-    bot.add_cog(Random(bot))
+async def setup(bot):
+    await bot.add_cog(Random(bot))

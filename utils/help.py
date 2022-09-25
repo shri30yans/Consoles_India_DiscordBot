@@ -6,7 +6,7 @@ import config
 colourlist = config.embed_colours
 
 
-class EmbedHelpCommand(commands.HelpCommand):
+class EmbedHelpCommand(commands.MinimalHelpCommand):
     """This is an example of a HelpCommand that utilizes embeds.
     It's pretty basic but it lacks some nuances that people might expect.
     1. It breaks if you have more than 25 cogs or more than 25 subcommands. (Most people don't reach this)
@@ -22,16 +22,16 @@ class EmbedHelpCommand(commands.HelpCommand):
     # Set the embed colour here
 
     def get_ending_note(self):
-        return f"Usage format: <required> [optional]\nUse {self.clean_prefix}{self.invoked_with} [command] for more info on a command."
+        return f"Usage format: <required> [optional]\nUse {self.context.clean_prefix}{self.invoked_with} [command] for more info on a command."
 
     def get_bot_help_ending_note(self):
-        return f"Use {self.clean_prefix}{self.invoked_with} [category] for more info on a category."
+        return f"Use {self.context.clean_prefix}{self.invoked_with} [category] for more info on a category."
 
     def get_command_signature(self, command):
         return f"{command.qualified_name} {command.signature}"
 
     # def get_format_info(self):
-    #     return f'```diff\n- Usage format: <required> [optional]\n- Don\'t type these brackets to use the command.\n+ {self.clean_prefix}help [command] - get information on a command\n+ {self.clean_prefix}help [category] - get information on a category```'
+    #     return f'```diff\n- Usage format: <required> [optional]\n- Don\'t type these brackets to use the command.\n+ {self.context.clean_prefix}help [command] - get information on a command\n+ {self.clean_prefix}help [category] - get information on a category```'
 
     async def send_bot_help(self, mapping):
         embed = discord.Embed(
@@ -70,11 +70,10 @@ class EmbedHelpCommand(commands.HelpCommand):
             description=command.help,
             colour=random.choice(colourlist),
         )
-        # embed.add_field(name=", value=f"{command.help}", inline=False)
 
         embed.add_field(
             name="Format",
-            value=f"`{self.clean_prefix}{self.get_command_signature(command)}`",
+            value=f"`{self.context.clean_prefix}{self.get_command_signature(command)}`",
             inline=False,
         )
         aliases = command.aliases
@@ -86,7 +85,7 @@ class EmbedHelpCommand(commands.HelpCommand):
                 inline=False,
             )
 
-        embed.set_thumbnail(url=str(self.context.bot.user.avatar_url))
+        embed.set_thumbnail(url=str(self.context.bot.user.display_avatar.url))
         embed.set_footer(text=self.get_ending_note())
         await self.get_destination().send(embed=embed)
 
@@ -106,7 +105,7 @@ class EmbedHelpCommand(commands.HelpCommand):
         for command in filtered:
             embed.add_field(
                 name=command,
-                value=f"{command.short_doc or '...'}\n`{self.clean_prefix}{self.get_command_signature(command)}`",
+                value=f"{command.short_doc or '...'}\n`{self.context.clean_prefix}{self.get_command_signature(command)}`",
                 inline=True,
             )
 
@@ -126,7 +125,7 @@ class EmbedHelpCommand(commands.HelpCommand):
             for command in filtered:
                 embed.add_field(
                     name=command,
-                    value=f"{command.short_doc or '...'}\n`{self.clean_prefix}{self.get_command_signature(command)}`",
+                    value=f"{command.short_doc or '...'}\n`{self.context.clean_prefix}{self.get_command_signature(command)}`",
                     inline=False,
                 )
 

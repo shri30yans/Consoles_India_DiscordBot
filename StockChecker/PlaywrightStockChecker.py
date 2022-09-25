@@ -175,5 +175,5 @@ class PlaywrightCog(commands.Cog):
                     dictionary[product_name][website_name] += 1
 
 
-def setup(bot):
-    bot.add_cog(PlaywrightCog(bot))
+async def setup(bot):
+   await bot.add_cog(PlaywrightCog(bot))

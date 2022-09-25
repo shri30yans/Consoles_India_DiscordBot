@@ -71,7 +71,7 @@ BASIC_COGS = [
 my_server_id = 889437492477046785
 playstation_server_id = 797570077364977696
 
-amazon_affiliate_tag = "consolesindia-21"
+amazon_affiliate_tag = "consolesindiatag-21"
 
 # Channels
 PS_stock_notification_channel = 892795445112369183

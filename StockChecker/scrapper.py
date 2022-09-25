@@ -209,6 +209,7 @@ class Scrapper(commands.Cog):
         # notify_me_button = soup.find(
         #     "button", class_="_2KpZ6l _2uS5ZX _2Dfasx"
         # )  # notify me button
+        # print(notify_me_button)
 
         add_to_cart_button = soup.find(
             "button", class_="_2KpZ6l _2U9uOA _3v1-ww"
@@ -231,6 +232,7 @@ class Scrapper(commands.Cog):
                 method="Buy Now Button",
                 page=page,
             )
+        
         # elif notify_me_button is None:
         #     await self.run_notifications(
         #         website_name="flipkart",
@@ -238,6 +240,7 @@ class Scrapper(commands.Cog):
         #         method="Notify Me Button is missing.",
         #         page=page,
         #     )
+
         else:
             await self.change_countinous_stock(
                 product, website_name="flipkart", value=False
@@ -351,12 +354,12 @@ class Scrapper(commands.Cog):
             )
         return True
 
-    async def scrape_ppgc(self, page_html, product, page=None):
+    async def scrape_e2z(self, page_html, product, page=None):
         soup = BeautifulSoup(page_html, "html.parser")
         add_to_cart_button = soup.find(attrs={"name": "add-to-cart"})
         if add_to_cart_button is not None:
             await self.run_notifications(
-                website_name="ppgc",
+                website_name="e2z",
                 product=product,
                 method="Add to Cart button",
                 page=page,
@@ -395,5 +398,5 @@ class Scrapper(commands.Cog):
         return True
 
 
-def setup(bot):
-    bot.add_cog(Scrapper(bot))
+async def setup(bot):
+    await bot.add_cog(Scrapper(bot))

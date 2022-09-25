@@ -2,6 +2,7 @@ import discord, random, platform, os
 from discord.ext import commands
 import config
 import datetime, time
+import pytz
 
 colourlist = config.embed_colours
 
@@ -11,63 +12,63 @@ class Utility(commands.Cog):
         self.bot = bot
         self.bot.launch_time = datetime.datetime.utcnow()
 
-    @commands.guild_only()
-    @commands.has_permissions(manage_roles=True)
-    @commands.bot_has_permissions(manage_roles=True)
-    @commands.cooldown(1, 10, commands.BucketType.user)
-    @commands.command(name="stuff")
-    async def createmuterole(self, ctx):
-        embed = discord.Embed(title="Doing stuff", description="Startup")
-        embed.set_footer(
-            icon_url=ctx.author.avatar_url,
-            text=f"Requested by {ctx.message.author} • {self.bot.user.name}",
-        )
-        message = await ctx.send(embed=embed)
+    # @commands.guild_only()
+    # @commands.has_permissions(manage_roles=True)
+    # @commands.bot_has_permissions(manage_roles=True)
+    # @commands.cooldown(1, 10, commands.BucketType.user)
+    # @commands.command(name="stuff")
+    # async def createmuterole(self, ctx):
+    #     embed = discord.Embed(title="Doing stuff", description="Startup")
+    #     embed.set_footer(
+    #         icon_url=ctx.author.display_avatar.url,
+    #         text=f"Requested by {ctx.message.author} • {self.bot.user.name}",
+    #     )
+    #     message = await ctx.send(embed=embed)
 
-        embed = discord.Embed(title="stuff", description="Setting permissions...")
-        embed.set_footer(
-            icon_url=ctx.author.avatar_url,
-            text=f"Requested by {ctx.message.author} • {self.bot.user.name}",
-        )
-        await message.edit(embed=embed)
+    #     embed = discord.Embed(title="stuff", description="Setting permissions...")
+    #     embed.set_footer(
+    #         icon_url=ctx.author.display_avatar.url,
+    #         text=f"Requested by {ctx.message.author} • {self.bot.user.name}",
+    #     )
+    #     await message.edit(embed=embed)
 
-        role = ctx.guild.get_role(798978668403753000)
+    #     role = ctx.guild.get_role(798978668403753000)
 
-        for x in [
-            797570310190530560,
-            865583434969514014,
-            797570078249844736,
-            814432680074412073,
-            807669335916806154,
-            861950014774050826,
-            814434416801480704,
-            797570078249844737,
-            844178807187439617,
-            797848476988735528,
-            800317930939482112,
-            801069934041497631,
-            850658377469788180,
-            798467157364834324,
-            807682660411375656,
-        ]:
-            category = self.bot.get_channel(x)
-            await category.set_permissions(
-                role, manage_channels=True, manage_permissions=True
-            )
-            for channel in category.channels:
-                await channel.set_permissions(
-                    role,
-                    manage_channels=True,
-                    manage_permissions=True,
-                    view_channel=True,
-                )
+    #     for x in [
+    #         797570310190530560,
+    #         865583434969514014,
+    #         797570078249844736,
+    #         814432680074412073,
+    #         807669335916806154,
+    #         861950014774050826,
+    #         814434416801480704,
+    #         797570078249844737,
+    #         844178807187439617,
+    #         797848476988735528,
+    #         800317930939482112,
+    #         801069934041497631,
+    #         850658377469788180,
+    #         798467157364834324,
+    #         807682660411375656,
+    #     ]:
+    #         category = self.bot.get_channel(x)
+    #         await category.set_permissions(
+    #             role, manage_channels=True, manage_permissions=True
+    #         )
+    #         for channel in category.channels:
+    #             await channel.set_permissions(
+    #                 role,
+    #                 manage_channels=True,
+    #                 manage_permissions=True,
+    #                 view_channel=True,
+    #             )
 
-        embed = discord.Embed(title="Stuff", description=f"Done stuff")
-        embed.set_footer(
-            icon_url=ctx.author.avatar_url,
-            text=f"Requested by {ctx.message.author} • {self.bot.user.name}",
-        )
-        await message.edit(embed=embed)
+    #     embed = discord.Embed(title="Stuff", description=f"Done stuff")
+    #     embed.set_footer(
+    #         icon_url=ctx.author.display_avatar.url,
+    #         text=f"Requested by {ctx.message.author} • {self.bot.user.name}",
+    #     )
+    #     await message.edit(embed=embed)
 
     @commands.command(name="Prefix", help=f"Shows the current prefix")
     async def prefix(self, ctx):
@@ -81,9 +82,9 @@ class Utility(commands.Cog):
         )
         prefixes = ", ".join(prefixes_list)
         embed.add_field(name=f"My Prefix", value=f"`{prefixes}`", inline=False)
-        embed.set_thumbnail(url=str(self.bot.user.avatar_url))
+        embed.set_thumbnail(url=str(self.bot.user.display_avatar.url))
         embed.set_footer(
-            icon_url=ctx.author.avatar_url,
+            icon_url=ctx.author.display_avatar.url,
             text=f"Requested by {ctx.message.author} • {self.bot.user.name} ",
         )
         await ctx.send(embed=embed)
@@ -123,9 +124,9 @@ class Utility(commands.Cog):
         )
         # embed.add_field(name="Support server",value=f"[Join the support server.](https://top.gg/bot/750236220595896370/vote)",inline=False)
         # embed.add_field(name="Vote",value=f"[Top.gg Vote](https://top.gg/bot/750236220595896370/vote)",inline=False)
-        embed.set_thumbnail(url=str(self.bot.user.avatar_url))
+        embed.set_thumbnail(url=str(self.bot.user.display_avatar.url))
         embed.set_footer(
-            icon_url=ctx.author.avatar_url,
+            icon_url=ctx.author.display_avatar.url,
             text=f"Requested by {ctx.message.author} • {self.bot.user.name} ",
         )
         await ctx.send(embed=embed)
@@ -141,7 +142,8 @@ class Utility(commands.Cog):
         start = time.perf_counter()
         async with self.bot.pool.acquire() as connection:
             async with connection.transaction():
-                await connection.fetchrow("SELECT rep FROM info LIMIT 1")
+                query = f'SELECT "{str(ctx.guild.id)}" FROM info LIMIT 1'
+                await connection.fetchrow(query)
         
         end = time.perf_counter()
         database_ping = (end - start) * 1000
@@ -150,7 +152,7 @@ class Utility(commands.Cog):
         embed.add_field(name="Typing",value=f"```{int(typing_ping)}ms```",inline=True)
         embed.add_field(name="Websocket",value=f"```{round(self.bot.latency * 1000)}ms```",inline=True)
         embed.add_field(name="Database",value=f"```{round(database_ping)}ms```",inline=True)
-        embed.set_footer(icon_url=ctx.author.avatar_url,text=f"Requested by {ctx.message.author} • {self.bot.user.name} ")
+        embed.set_footer(icon_url=ctx.author.display_avatar.url,text=f"Requested by {ctx.message.author} • {self.bot.user.name} ")
         await message.edit(embed=embed)
 
     @commands.guild_only()
@@ -204,9 +206,9 @@ class Utility(commands.Cog):
             inline=False,
         )
         embed.add_field(name="Created", value=f"{time_ago} ago", inline=False)
-        embed.set_thumbnail(url=str(ctx.guild.icon_url))
+        embed.set_thumbnail(url=str(ctx.guild.icon.url))
         embed.set_footer(
-            icon_url=ctx.author.avatar_url,
+            icon_url=ctx.author.display_avatar.url,
             text=f"Requested by {ctx.message.author} • {self.bot.user.name} ",
         )
         await ctx.reply(embed=embed)
@@ -270,17 +272,17 @@ class Utility(commands.Cog):
 
         embed.add_field(name="Top Role:", value=f"{top_role}", inline=False)
         # embed.add_field(name="",value=f"{user_mention.}")
-        embed.set_thumbnail(url=str(user_mention.avatar_url))
+        embed.set_thumbnail(url=str(user_mention.avatar.url))
 
-        author_avatar = ctx.author.avatar_url
         embed.set_footer(
-            icon_url=author_avatar,
+            icon_url=ctx.author.display_avatar.url,
             text=f"Requested by {ctx.message.author} • {self.bot.user.name} ",
         )
         await ctx.reply(embed=embed)
 
     async def find_time_difference(self, datetime_object):
-        time_difference = datetime.datetime.utcnow() - datetime_object
+        current_utc = datetime.datetime.now(pytz.utc)
+        time_difference = current_utc - datetime_object
         td = datetime.timedelta(seconds=time_difference.total_seconds())
         years, remainder = divmod(td.days, 365)
         months, days = divmod(remainder, 30)
@@ -326,7 +328,7 @@ class Utility(commands.Cog):
                 name="Too many messages deleted.",
                 value=f"You can delete a maximum of 100 messages at one go to prevent excessive deleting. ",
             )
-            author_avatar = ctx.author.avatar_url
+            author_avatar = ctx.author.display_avatar.url
             embed.set_footer(
                 icon_url=author_avatar,
                 text=f"Requested by {ctx.message.author} • {self.bot.user.name} ",
@@ -339,7 +341,7 @@ class Utility(commands.Cog):
                 color=random.choice(colourlist), timestamp=ctx.message.created_at
             )
             embed.add_field(name="Deleted", value=f"Deleted {num} message(s)")
-            author_avatar = ctx.author.avatar_url
+            author_avatar = ctx.author.display_avatar.url
             embed.set_footer(
                 icon_url=author_avatar,
                 text=f"Requested by {ctx.message.author} • {self.bot.user.name} ",
@@ -360,8 +362,8 @@ class Utility(commands.Cog):
             color=random.choice(colourlist),
             timestamp=ctx.message.created_at,
         )
-        embed.set_image(url=user_mention.avatar_url)
-        author_avatar = ctx.author.avatar_url
+        embed.set_image(url=user_mention.display_avatar.url)
+        author_avatar = ctx.author.display_avatar.url
         embed.set_footer(
             icon_url=author_avatar,
             text=f"Requested by {ctx.message.author} • {self.bot.user.name} ",
@@ -384,5 +386,5 @@ class Utility(commands.Cog):
         return output_time
 
 
-def setup(bot):
-    bot.add_cog(Utility(bot))
+async def setup(bot):
+    await bot.add_cog(Utility(bot))

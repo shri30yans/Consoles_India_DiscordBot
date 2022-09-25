@@ -1,4 +1,4 @@
-import os, sys, discord, platform, random
+import os, sys, discord, platform, random, asyncio
 from discord.ext import commands, tasks
 from utils.help import EmbedHelpCommand
 import config
@@ -53,23 +53,21 @@ async def status_update():
     activity = random.choice(list_of_statuses)
     await bot.change_presence(status=discord.Status.online, activity=activity)
 
+async def setup(bot):
+    if config.mode == "Basic":
+        cogs = config.BASIC_COGS
+    else:
+        cogs = config.STARTUP_COGS
 
-status_update.start()
-
-if config.mode == "Basic":
-    cogs = config.BASIC_COGS
-else:
-    cogs = config.STARTUP_COGS
-
-for extension in cogs:
-    try:
-        bot.load_extension(extension)
-        extension = extension.replace("cogs.", "")
-        print(f"Loaded extension '{extension}'")
-    except Exception as e:
-        exception = f"{type(e).__name__}: {e}"
-        extension = extension.replace("cogs.", "")
-        print(f"Failed to load extension {extension}\n{exception}")
+    for extension in cogs:
+        try:
+            await bot.load_extension(extension)
+            extension = extension.replace("cogs.", "")
+            print(f"Loaded extension '{extension}'")
+        except Exception as e:
+            exception = f"{type(e).__name__}: {e}"
+            extension = extension.replace("cogs.", "")
+            print(f"Failed to load extension {extension}\n{exception}")
 
 
 @bot.event
@@ -93,16 +91,30 @@ async def on_ready():
 DATABASE_DICT = config.DATABASE_DICT
 
 
-async def connection_pool():
-    bot.pool = await asyncpg.create_pool(
-        database=DATABASE_DICT["database"],
-        user=DATABASE_DICT["user"],
-        password=DATABASE_DICT["password"],
-        host=DATABASE_DICT["host"],
-        port=DATABASE_DICT["port"],
-        max_inactive_connection_lifetime=5,
-    )
+# async def connection_pool():
+#     async with bot, asyncpg.create_pool(
+#         database=DATABASE_DICT["database"],
+#         user=DATABASE_DICT["user"],
+#         password=DATABASE_DICT["password"],
+#         host=DATABASE_DICT["host"],
+#         port=DATABASE_DICT["port"],
+#         max_inactive_connection_lifetime=5,) as pool:
+#         return pool
+    
 
 
-bot.loop.run_until_complete(connection_pool())
-bot.run(TOKEN)
+
+async def main():
+    async with bot:
+        await setup(bot)
+        async with bot, asyncpg.create_pool(
+            database=DATABASE_DICT["database"],
+            user=DATABASE_DICT["user"],
+            password=DATABASE_DICT["password"],
+            host=DATABASE_DICT["host"],
+            port=DATABASE_DICT["port"],
+            max_inactive_connection_lifetime=5,) as pool:
+            bot.pool = pool
+            await bot.start(TOKEN)
+
+asyncio.run(main())

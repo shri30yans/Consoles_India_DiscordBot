@@ -176,5 +176,5 @@ class Notifications(commands.Cog):
                     await channel.send(file=file, embed=embed, content=role.mention)
 
 
-def setup(bot):
-    bot.add_cog(Notifications(bot))
+async def setup(bot):
+    await bot.add_cog(Notifications(bot))

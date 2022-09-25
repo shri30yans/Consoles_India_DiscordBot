@@ -212,7 +212,7 @@ class RequestsCog(commands.Cog):
     )
     async def runcount(self, ctx):
         embed = discord.Embed(
-            Title="Run Count",
+            title="Run Count",
             description="Showing number of times RequestsStockChecker has run succesfully on each site.",
             colour=0x0000FF,
         )
@@ -259,5 +259,5 @@ class RequestsCog(commands.Cog):
                     dictionary[product_name][website_name] += 1
 
 
-def setup(bot):
-    bot.add_cog(RequestsCog(bot))
+async def setup(bot):
+    await bot.add_cog(RequestsCog(bot))

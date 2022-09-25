@@ -141,5 +141,5 @@ class GUI(commands.Cog):
             await asyncio.sleep(0)
 
 
-def setup(bot):
-    bot.add_cog(GUI(bot))
+async def setup(bot):
+    await bot.add_cog(GUI(bot))

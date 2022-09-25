@@ -100,7 +100,7 @@ class TradeChannel(commands.Cog):
                 description=f"{channel.mention} \nMember's added to trade: {member_names} \nDescription: {description}",
             )
             embed.set_footer(
-                icon_url=ctx.author.avatar_url,
+                icon_url=ctx.author.display_avatar.url,
                 text=f"Requested by {ctx.message.author} • {self.bot.user.name} ",
             )
             await ctx.send(embed=embed)
@@ -128,7 +128,7 @@ class TradeChannel(commands.Cog):
                 inline=False,
             )
             embed.set_footer(
-                icon_url=ctx.author.avatar_url,
+                icon_url=ctx.author.display_avatar.url,
                 text=f"Requested by {ctx.message.author} • {self.bot.user.name} ",
             )
             message = await channel.send(
@@ -214,7 +214,7 @@ class TradeChannel(commands.Cog):
                 elif type.lower() in ["html", ".html"]:
                     channel = self.bot.get_channel(config.mod_logs_channel_id)
                     embed = discord.Embed(
-                        Title="Fetching messages...",
+                        title="Fetching messages...",
                         description="Fetching messages to create a transcript. Please wait.",
                     )
                     message = await ctx.send(embed=embed)
@@ -275,5 +275,5 @@ class TradeChannel(commands.Cog):
         # newfile.write(text)
 
 
-def setup(bot):
-    bot.add_cog(TradeChannel(bot))
+async def setup(bot):
+    await bot.add_cog(TradeChannel(bot))

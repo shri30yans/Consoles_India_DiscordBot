@@ -22,7 +22,8 @@ class RunCog(commands.Cog):
         
         elif config.mode == "Basic":
             self.RequestsCog = self.bot.get_cog("RequestsCog")
-            self.bot.loop.create_task(self.startup_basic())
+            self.bot.loop.create_task(self.startup_requests_scrapping())
+            # self.bot.loop.create_task(self.startup_basic())
         
         elif config.mode == "All":
             self.RequestsCog = self.bot.get_cog("RequestsCog")
@@ -118,8 +119,11 @@ class RunCog(commands.Cog):
         for product in [
             "PS5",
             "PS5_DE",
+            "PS5_HFW_BUNDLE",
+            "PS5_DE_HFW_BUNDLE",
             "XSX",
             #"XSX_HALO_EDITION",
+           #"XSX_FORZA_EDITION",
             #"XBOX_WIRELESS_HEADSET",
             #"XSX_HALO_EDITION_CONTROLLER",
             # "XSS",
@@ -133,11 +137,14 @@ class RunCog(commands.Cog):
                 )
             )
 
+
         # Shop At Sony Center
         for product in [
             "PS5",
             "PS5_DE",
-            "PS5_GT7_BUNDLE",
+            #"PS5_GT7_BUNDLE",
+            "PS5_HFW_BUNDLE",
+            "PS5_DE_HFW_BUNDLE",
             # "RED_DS",
             # "BLACK_DS",
         ]:
@@ -146,7 +153,7 @@ class RunCog(commands.Cog):
                     product_name=product,
                     website_name="shopatsc",
                     scrapper_function=self.ScrapperCog.scrape_shopatsc,
-                    delay=20,
+                    delay=5,
                 )
             )
 
@@ -165,7 +172,7 @@ class RunCog(commands.Cog):
         #         )
         #     )
 
-        # # Prepaid Gamer Card
+        #  E2Zstore
         # for product in [
         #     "PS5",
         #     "PS5_DE",
@@ -175,8 +182,8 @@ class RunCog(commands.Cog):
         #     self.bot.loop.create_task(
         #         self.RequestsCog.requests_scrapper(
         #             product_name=product,
-        #             website_name="ppgc",
-        #             scrapper_function=self.ScrapperCog.scrape_ppgc,
+        #             website_name="e2zstore",
+        #             scrapper_function=self.ScrapperCog.scrape_e2zstore,
         #             delay=60,
         #         )
         #     )
@@ -202,7 +209,7 @@ class RunCog(commands.Cog):
                     product_name=product,
                     website_name="amazon",
                     scrapper_function=self.ScrapperCog.scrape_amazon_wishlist,
-                    delay=15,
+                    delay=5,
                 )
             )
 
@@ -219,7 +226,7 @@ class RunCog(commands.Cog):
                     product_name=product,
                     website_name="flipkart",
                     scrapper_function=self.ScrapperCog.scrape_flipkart,
-                    delay=20,
+                    delay=5,
                 )
             )
 
@@ -236,7 +243,7 @@ class RunCog(commands.Cog):
                     product_name=product,
                     website_name="shopatsc",
                     scrapper_function=self.ScrapperCog.scrape_shopatsc,
-                    delay=60,
+                    delay=5,
                 )
             )
 
@@ -260,8 +267,8 @@ class RunCog(commands.Cog):
         #     self.bot.loop.create_task(
         #         self.PlaywrightCog.playwright_scrapper(
         #             product_name=product,
-        #             website_name="ppgc",
-        #             scrapper_function=self.ScrapperCog.scrape_ppgc,
+        #             website_name="e2zstore",
+        #             scrapper_function=self.ScrapperCog.scrape_e2zstore,
         #             delay=30,
         #         )
         #     )
@@ -278,5 +285,5 @@ class RunCog(commands.Cog):
         #     )
 
 
-def setup(bot):
-    bot.add_cog(RunCog(bot))
+async def setup(bot):
+    await bot.add_cog(RunCog(bot))

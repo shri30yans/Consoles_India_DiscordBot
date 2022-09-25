@@ -46,7 +46,7 @@ class Tags(commands.Cog):
         )
         
         embed.set_footer(
-            icon_url=ctx.author.avatar_url,
+            icon_url=ctx.author.display_avatar.url,
             text=f"Requested by {ctx.message.author} • {self.bot.user.name}",
         )
         await ctx.send(embed=embed)
@@ -64,16 +64,36 @@ class Tags(commands.Cog):
             inline=False,
         )
         embed.add_field(
-            name="ShopatSC",
-            value='[Physical](https://shopatsc.com/products/playstation-5-console/ "Physical edition")\n[Digital](https://shopatsc.com/collections/playstation-5/products/playstation5-digital-edition/ "Digital edition")',
+            name="Amazon",
+            value=f"""
+                    [Physical](https://www.amazon.in/dp/B09V59MD1P/?tag={config.amazon_affiliate_tag} "Physical edition")
+                    [Digital](https://www.amazon.in/dp/B09V58Q6DY/?tag={config.amazon_affiliate_tag} "Digital edition")
+                    [Physical HFW Edition](https://www.amazon.in/dp/B0B9GH5TTN/?tag={config.amazon_affiliate_tag} "Physical HFW edition")
+                    [Digital HFW Edition](https://www.amazon.in/dp/B0B9GDVHQQ/?tag={config.amazon_affiliate_tag} "Digital HFW edition")
+                    [Physical GT7 Edition](https://www.amazon.in/dp/B09YD71MZT/?tag={config.amazon_affiliate_tag} "Physical GT7 edition")
+                    """,
         )
         embed.add_field(
-            name="Amazon",
-            value=f'[Physical](https://www.amazon.in/dp/B09V59MD1P/?tag={config.amazon_affiliate_tag} "Physical edition")\n[Digital](https://www.amazon.in/dp/B09V58Q6DY/?tag={config.amazon_affiliate_tag} "Digital edition")',
+            name="ShopatSC",
+            value="""
+                [Physical](https://shopatsc.com/products/playstation-5-console/ "Physical edition")
+                [Digital](https://shopatsc.com/collections/playstation-5/products/playstation5-digital-edition/ "Digital edition")
+                [Physical HFW Edition](https://shopatsc.com/collections/playstation-5/products/playstation-5-console-horizon-forbidden-west-voucher-inside-box "Physical HFW edition")
+                [Digital HFW Edition](https://shopatsc.com/collections/playstation-5/products/playstation-5-digital-edition-with-horizon-forbidden-west-voucher-inside-box "Digital HFW edition")
+                [Physical GT7 Edition](https://shopatsc.com/collections/playstation-5/products/playstation%C2%AE5-console-with-ps5-gran-turismo-7-standard-ed "Physical GT7 edition")
+
+            """,
         )
+
         embed.add_field(
             name="Flipkart",
-            value='[Physical](https://www.flipkart.com/sony-playstation-5-cfi-1008a01r-825-gb-astro-s-playroom/p/itma0201bdea62fa/ "Physical edition")\n[Digital](https://www.flipkart.com/sony-playstation-5-cfi-1008b01r-825-gb-astro-s-playroom/p/itm8bf74f8d0b890?/ "Digital edition")',
+            value="""
+            [Physical](https://www.flipkart.com/sony-playstation-5-cfi-1008a01r-825-gb-astro-s-playroom/p/itma0201bdea62fa/ "Physical edition")
+            [Digital](https://www.flipkart.com/sony-playstation-5-cfi-1008b01r-825-gb-astro-s-playroom/p/itm8bf74f8d0b890?/ "Digital edition")
+            [Physical HFW Edition](https://www.flipkart.com/sony-cfi-1108a01r-825-gb-ssd-horizon-forbidden-west-for-ps5-voucher-inside-box/p/itm1e58025bea2d9 "Physical HFW edition")
+            [Digital HFW Edition](https://www.flipkart.com/sony-cfi-1108b01r-825-gb-ssd-horizon-forbidden-west-for-ps5-voucher-inside-box/p/itm3783a181f39d4 "Digital HFW edition")
+            
+            """,
         )
         embed.add_field(
             name="Croma",
@@ -88,8 +108,8 @@ class Tags(commands.Cog):
             value='[Physical](https://www.reliancedigital.in/sony-playstation-5-console/p/491936180 "Physical edition")\n[Digital](https://www.reliancedigital.in/sony-playstation-5-console/p/491936181 "Digital edition")',
         )
         embed.add_field(
-            name="PPGC",
-            value='[Physical](https://prepaidgamercard.com/product/playstation-5-console-ps5/ "Physical edition")\n[Digital](https://prepaidgamercard.com/product/playstation-5-digital-edition-ps5/ "Digital edition")',
+            name="E2Z (Formerly PPGC)",
+            value='[Physical](https://e2zstore.com/product/playstation-5-console-ps5/ "Physical edition")\n[Digital](https://e2zstore.com/product/playstation-5-digital-edition-ps5/ "Digital edition")',
         )
         embed.add_field(
             name="Games the Shop",
@@ -100,7 +120,7 @@ class Tags(commands.Cog):
             value='[Physical](https://gameloot.in/shop/sony-playstation-5/ "Physical edition")\n[Digital]( https://gameloot.in/shop/sony-playstation-5-digital-edition// "Digital edition")',
         )
         embed.set_footer(
-            icon_url=ctx.author.avatar_url,
+            icon_url=ctx.author.display_avatar.url,
             text=f"Requested by {ctx.message.author} • {self.bot.user.name}",
         )
         await ctx.send(embed=embed)
@@ -117,11 +137,24 @@ class Tags(commands.Cog):
         )
         embed.add_field(
             name="Amazon",
-            value=f'[Xbox Series X](https://www.amazon.in/Xbox-Series-X/dp/B08J7QX1N1/?tag={config.amazon_affiliate_tag} "Xbox Series X")\n[Xbox Series S](https://www.amazon.in/Xbox-Series-S/dp/B08J89D6BW/?tag={config.amazon_affiliate_tag} "Xbox Series S")',
+            value=f"""
+                [Xbox Series X](https://www.amazon.in/Xbox-Series-X/dp/B08J7QX1N1/?tag={config.amazon_affiliate_tag} "Xbox Series X")
+                [XSX Halo Edition](https://www.amazon.in/dp/B09LMY7K1L/?tag={config.amazon_affiliate_tag} "XSX Halo Edition")
+                [XSX Gear Tactics Bundle](https://www.amazon.in/dp/B08NRLQ294/?tag={config.amazon_affiliate_tag} "XSX Gear Tactics Bundle")
+                [XSX White Controller Bundle](https://www.amazon.in/dp/B08NRLS39X/?tag={config.amazon_affiliate_tag} "XSX White controller Bundle")
+                [XSX Black Controller Bundle](https://www.amazon.in/dp/B08NQZGSJ2/?tag={config.amazon_affiliate_tag} "XSX Black controller Bundle")
+                [XSX Blue Controller Bundle Gears](https://www.amazon.in/dp/B08NRBNSPW/?tag={config.amazon_affiliate_tag} "XSX Blue controller Bundle")
+                [Xbox Series S](https://www.amazon.in/Xbox-Series-S/dp/B08J89D6BW/?tag={config.amazon_affiliate_tag} "Xbox Series S")
+                
+                """,
         )
         embed.add_field(
             name="Flipkart",
-            value='[Xbox Series X](https://www.flipkart.com/microsoft-xbox-series-x-1024-gb/p/itm63ff9bd504f27 "Xbox Series X")\n[Xbox Series S](https://www.flipkart.com/microsoft-xbox-series-s-512-gb/p/itm13c51f9047da8 "Xbox Series S")',
+            value="""
+                [Xbox Series X](https://www.flipkart.com/microsoft-xbox-series-x-1024-gb/p/itm63ff9bd504f27 "Xbox Series X")
+                [XSX Halo Edition](https://www.flipkart.com/microsoft-xbox-series-x-1000-gb-halo-infinite-game-digital-code/p/itmc66869fa47647 "XSX Halo Edition")
+                [XSX Forza Bundle](https://www.flipkart.com/xbox-series-x-console-1000-gb-forza-horizon-4/p/itm2c0869097870c "XSX Forza Bundle Edition")
+                [Xbox Series S](https://www.flipkart.com/microsoft-xbox-series-s-512-gb/p/itm13c51f9047da8 "Xbox Series S")""",
         )
         embed.add_field(
             name="Vijay Sales",
@@ -132,15 +165,15 @@ class Tags(commands.Cog):
             value='[Xbox Series X](https://www.reliancedigital.in/xbox-series-x-console-with-wireless-controller-1-tb/p/491934660 "Xbox Series X")\n[Xbox Series S](https://www.reliancedigital.in/xbox-series-s-console-with-wireless-controller-512-gb/p/491934659 "Xbox Series S")',
         )
         embed.add_field(
-            name="PPGC",
-            value='[Xbox Series X](https://prepaidgamercard.com/product/xbox-series-x/ "Xbox Series X")\n[Xbox Series S](https://prepaidgamercard.com/product/xbox-series-s/ "Xbox Series S")',
+            name="E2Z (Formerly PPGC)",
+            value='[Xbox Series X](https://e2zstore.com/product/xbox-series-x/ "Xbox Series X")\n[Xbox Series S](https://e2zstore.com/product/xbox-series-s/ "Xbox Series S")',
         )
         embed.set_footer(
-            icon_url=ctx.author.avatar_url,
+            icon_url=ctx.author.display_avatar.url,
             text=f"Requested by {ctx.message.author} • {self.bot.user.name}",
         )
         await ctx.send(embed=embed)
 
 
-def setup(bot):
-    bot.add_cog(Tags(bot))
+async def setup(bot):
+    await bot.add_cog(Tags(bot))
