@@ -1,22 +1,46 @@
-## ***PlayStation Discord Bot***
-### Functions:
+<div align="center" style="padding: 10px;">
+    <img src="images/logo.jpg" height="100" style="padding: 10px;">
+    <h1>Consoles India Discord Bot</h1>
+    <a href="https://twitter.com/Consoles_India"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" style="padding: 10px;"></a>
+    <a href="https://t.me/Consoles_India"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" style="padding: 10px;"></a>
+    <a href="https://discord.gg/4WqnrD3sRx"><img src="https://dcbadge.vercel.app/api/server/4WqnrD3sRx?style=for-the-badge" style="padding: 10px;"></a>
+</div> <br>
 
-* Stock notifications for PS5 (India Only) (Amazon, Flipkart, ShopAtSC, Prepaid Gamer Card, Games the Shop)
-* Stock notifications for Xbox Series X and Series S (India Only) (Amazon, Flipkart)
-* Create Trade Channels
 
-[Join the Console Stock Notification India Server.](https://discord.gg/NXUuNuusJM)
+Check out the [Stock checker only](https://github.com/shri30yans/PS5_DiscordBot/tree/Stock-checker-only) branch for only stock notifications without the Discord Bot.
 
-### Pictures:
+
+### Features
+* Multiplatform Asynchronous scrapping.
+* Notifications on Discord, Twitter and Telegram.
+* Supports both Requests library and Playwright for Headless Browser mode scrapping.
+* GUI in Tkinter to see live updates of stocks on all the platforms.
+* Database Integration for User Rep in Trade channels.
+* Create and use custom Trade channels.
+* Sending custom messages on command using Tags.
+
+
+### Platforms currently supported
+- Amazon
+- Flipkart
+- ShopAtSC
+- Prepaid Gamer Card
+- Games the Shop
+
+
+### Working:
 ![PS5 Stock](images/PS5.png)   
 *PS5 Stock Alert* 
 
-![XSS Stock](images/XSS.pmg)   
+
+![XSS Stock](images/XSS.png)   
 *Xbox Series S Stock Alert*   
+
  
 ![Trade Channel](images/Create_trade_channel.jpg)   
 *Creating a Trade Channel*
-     
+
+ 
 ![Instructions](images/instructions.jpg)   
 *Auto-message in Trade Channel*  
 
@@ -38,7 +62,7 @@ playwright install
 3. Fill in the bot credentials in the .env file.
 
 ## Twitter Setup
-1. Apply for a Twiiter Developer account from the [Twitter developer site](https://developer.twitter.com/)
+1. Apply for a Twitter Developer account from the [Twitter developer site](https://developer.twitter.com/)
 2. Create a new app and register it from the [Twitter apps page](https://developer.twitter.com/en/portal/projects-and-apps)
 3. Once a new app is created the Consumer key and Consumer Secret is opened up. Add these to the .env file.
 4. Go back to the apps page and click on the "Keys and tokens" menu. Here the access token and access token secret can be seen. Add this to the .env file as well.
@@ -47,13 +71,8 @@ playwright install
 1. On Telegram, search @BotFather, send him a `/start` message
 2. Send another `/newbot` message, then follow the instructions to setup a name and a username.
 3. A API Token/ Bot Token is shown. Add this token to the .env file.
-4. 
-
-
-
-
+   
 ### Run script:
-
     python bot.py
 
 
