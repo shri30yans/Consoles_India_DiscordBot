@@ -1,5 +1,5 @@
 <div align="center" style="padding: 10px;">
-    <img src="images/logo.jpg" height="100" style="padding: 10px;">
+    <img src="images/logo.jpg" height="90" style="padding: 10px;">
     <h1>Consoles India Discord Bot</h1>
     <a href="https://twitter.com/Consoles_India"><img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" style="padding: 10px;"></a>
     <a href="https://t.me/Consoles_India"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" style="padding: 10px;"></a>
@@ -31,18 +31,21 @@ Check out the [Stock checker only](https://github.com/shri30yans/PS5_DiscordBot/
 ### Working:
 ![PS5 Stock](images/PS5.png)   
 *PS5 Stock Alert* 
-
-
+<br>
 ![XSS Stock](images/XSS.png)   
 *Xbox Series S Stock Alert*   
+<br>
+![PS5 Twitter Stock](images/twitter_notification.png)   
+*PS5 Twitter Stock Alert* 
 
- 
+![PS5 Telegram Stock](images/telegram_notification.png)   
+*PS5 Telegram Stock Alert* 
+
 ![Trade Channel](images/Create_trade_channel.jpg)   
 *Creating a Trade Channel*
 
- 
 ![Instructions](images/instructions.jpg)   
-*Auto-message in Trade Channel*  
+*Auto-message in created Trade Channel*  <br>
 
 
 
