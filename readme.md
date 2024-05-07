@@ -5,19 +5,21 @@
     <a href="https://t.me/Consoles_India"><img src="https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" style="padding: 10px;"></a>
     <a href="https://discord.gg/4WqnrD3sRx"><img src="https://dcbadge.vercel.app/api/server/4WqnrD3sRx?style=for-the-badge" style="padding: 10px;"></a>
 </div> <br>
+A Discord bot that helps you secure in-demand products. It leverages asynchronous multi-site scraping to provide real-time availability updates, ensuring that you never miss any drops. Originally created for PS5 and XSX stock notifications in India. 
 
-
+### Stockchecker only
 Check out the [Stock checker only](https://github.com/shri30yans/Consoles_India_StockNotifier) version for only stock notifications without the Discord Bot.
 
 
 ### Features
-* Multiplatform Asynchronous scrapping.
-* Notifications on Discord, Twitter and Telegram.
-* Supports both Requests library and Playwright for Headless Browser mode scrapping.
-* GUI in Tkinter to see live updates of stocks on all the platforms.
-* Database Integration for User Rep in Trade channels.
-* Create and use custom Trade channels.
-* Sending custom messages on command using Tags.
+- Multiplatform Asynchronous scrapping.
+- Notifications on Discord, Twitter and Telegram.
+- Supports both Requests library for traditional scrapping and Playwright for Browser based scrapping.
+- GUI in Tkinter to see live updates of stocks on all the platforms.
+- Database Integration for User Rep in Trade channels.
+- Create and use custom Trade channels.
+- Sending custom messages on command using Tags.
+- Comprehensive Logging
 
 
 ### Platforms currently supported
@@ -74,8 +76,18 @@ playwright install
 1. On Telegram, search @BotFather, send him a `/start` message
 2. Send another `/newbot` message, then follow the instructions to setup a name and a username.
 3. A API Token/ Bot Token is shown. Add this token to the .env file.
-   
-### Run script:
-    python bot.py
 
+## Scrapper setup
+Modify the configuration file to specify:
+- `StockChecker/ScrapperConfig.py` Target products
+- `StockChecker/WebsiteConfig.py` Websites to scrape
+- `config.py` Notification and Scrapping mode (Requests/Playwright) preferences
+   
+### Run script
+```
+python bot.py
+```
+
+### Contributions
+This project welcomes contributions. Feel free to suggest new features, report bugs, or improve the codebase.
 
