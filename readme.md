@@ -7,7 +7,7 @@
 </div> <br>
 
 
-Check out the [Stock checker only](https://github.com/shri30yans/PS5_DiscordBot/tree/Stock-checker-only) version for only stock notifications without the Discord Bot.
+Check out the [Stock checker only](https://github.com/shri30yans/Consoles_India_StockNotifier) version for only stock notifications without the Discord Bot.
 
 
 ### Features
